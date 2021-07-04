@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <link rel="stylesheet" href="main.css" type="text/css" media="all" />
+</head>
+<body>
+    <div class="container">
+        <section class="Home">
+          <!--  <div class="panner">
+                <img src="./images/panner1.jpg" alt="" />
+            </div>-->
+        </section>
+        <main>
+            <section class="planet-card header active">
+                <img src="./images/mercury.jpg" alt="" >
+                <h2 class="planet-desc">
+Mercury
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/venus.jpg" alt="" >
+                <h2 class="planet-desc">
+Venus
+                </h2>
+            </section>
+            <section class="planet-card header ">
+                <img src="./images/earth.jpg" alt="" >
+                <h2 class="planet-desc">
+Earth
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/mars.jpg" alt="" >
+                <h2 class="planet-desc">
+mars
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/jupiter.jpg" alt="" >
+                <h2 class="planet-desc">
+Jupiter
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/saturn.jpg" alt="" >
+                <h2 class="planet-desc">
+Saturn
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/uranus.jpg" alt="" >
+                <h2 class="planet-desc">
+Uranus
+                </h2>
+            </section>
+            <section class="planet-card header">
+                <img src="./images/neptune.jpg" alt="" >
+                <h2 class="planet-desc">
+Neptune
+                </h2>
+            </section>
+        </main>
+            <div class="bullets">
+              
+            </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      const slider = document.querySelector('main'),
+            sliderCards =Array.from( document.querySelectorAll('.planet-card'));
+      let currentSlide= 0;
+      let i;
+     for( i = 1; i <= sliderCards.length; i++){ 
+        document.querySelector('.bullets').innerHTML +=`
+        <span class="bullet" order="${i}"> 
+        </span>`;
+     }
+       const  bullets =Array.from( document.querySelectorAll('.bullet'))
+     console.log(bullets)
+      function sliding(){
+        slider.style.left = `-${sliderCards[currentSlide].offsetLeft}px`;
+        removeAllActives(sliderCards)
+        removeAllActives(bullets)
+        sliderCards[currentSlide].classList.add('active');
+        bullets[currentSlide].classList.add('active');
+      }
+      sliding();
+      function removeAllActives(sliderWraper){
+      sliderWraper.map(el => el.classList.remove('active')
+      )
+      }
+      setInterval(() => {
+        currentSlide++;
+        if(currentSlide >= sliderCards.length){
+          currentSlide = 0;
+        }
+        sliding();
+      console.log(parseFloat(sliderCards[currentSlide].offsetLeft))
+      },4500)
+      console.log(document.querySelector('.bullets').children)
+      
+      </script>
+</body>
+</html>

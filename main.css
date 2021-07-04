@@ -1,0 +1,69 @@
+        *,*::after,*::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .container{
+            width: 80%;
+            height: 80%;
+            overflow: scroll;
+            margin: auto;
+            background: #555;
+            position: relative;
+        }
+        main{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: all 2s ease-out;
+            position:relative ;
+         
+        }
+        .panner,.planet-card{
+            min-width: 100vw;
+            height: 70%;
+            background: #111;
+            
+        }
+        .planet-card{
+          position: relative;
+        }
+        .panner img, .planet-card img{
+            width: 100%;
+            height: 100%;
+        }
+        .planet-name{
+          position: absolute;
+          left: 10%;
+          bottom: 10%;
+          transform: translate(-10%,-10%);
+          color: #fff;
+        }
+        .bullets{
+          /*position: fixed;
+          bottom: 0;*/
+          color: #00f;
+          z-index: 5;
+          width: 200px;
+          height: 50px;
+        }
+        .bullet{
+          width: 25px;
+          height: 25px;
+          margin: 0 5px;
+          display: inline-block;
+          border-radius: 100%;
+          opacity: 0.5;
+          z-index: 5;
+        }
+        .bullet.active{
+          opacity: 1;
+        }
+        .bullet img{
+          width: 100%;
+        }
+        
