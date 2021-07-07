@@ -1,15 +1,14 @@
-const slider = document.querySelector('main'),
+const slider = document.querySelector('.slider'),
             sliderCards =Array.from( document.querySelectorAll('.planet-card'));
       let currentSlide= 0;
       
      for(let i = 1; i <= sliderCards.length; i++){ 
-       /* document.querySelector('.bullets').innerHTML +=`
-        <span class="bullet" order="${i}"> 
-        </span>`;*/
-        console.log(i)
+       document.querySelector('.bullets').innerHTML +=`
+        <div class="bullet" order="${i}"> 
+        <img src="./images/icon${i}.png"/>
+        </div>`;
      }
        const  bullets =Array.from( document.querySelectorAll('.bullet'))
-     console.log(bullets)
       function sliding(){
         slider.style.left = `-${sliderCards[currentSlide].offsetLeft}px`;
         removeAllActives(sliderCards)
@@ -22,12 +21,26 @@ const slider = document.querySelector('main'),
       sliderWraper.map(el => el.classList.remove('active')
       )
       }
-      setInterval(() => {
+      let autoSliding = setInterval(() => {
         currentSlide++;
         if(currentSlide >= sliderCards.length){
           currentSlide = 0;
         }
         sliding();
-      console.log(parseFloat(sliderCards[currentSlide].offsetLeft))
+      
       },4500)
-      console.log(document.querySelector('.bullets').children)
+
+      bullets.map(el =>{
+        el.addEventListener("click", () => {
+          clearInterval(autoSliding);
+          currentSlide = el.getAttribute('order')-1
+          sliding();
+          autoSliding = setInterval(() => {
+            currentSlide++;
+            if(currentSlide >= sliderCards.length){
+              currentSlide = 0;
+            }
+            sliding();
+          },4500)
+        })
+      })

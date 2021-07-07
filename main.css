@@ -8,14 +8,19 @@
             height: 100%;
         }
         .container{
-            width: 80%;
-            height: 80%;
-            overflow: scroll;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             margin: auto;
             background: #555;
             position: relative;
         }
         main{
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+        .slider{
             display: flex;
             width: 100%;
             height: 100%;
@@ -24,46 +29,46 @@
          
         }
         .panner,.planet-card{
-            min-width: 100vw;
-            height: 70%;
+            min-width: 100%;
+            height: 100%;
             background: #111;
             
         }
         .planet-card{
-          position: relative;
         }
-        .panner img, .planet-card img{
-            width: 100%;
-            height: 100%;
+        .planet-card img{
+            width: 400px;
+            height: 400px;
         }
         .planet-name{
-          position: absolute;
-          left: 10%;
-          bottom: 10%;
-          transform: translate(-10%,-10%);
+          text-align: center;
           color: #fff;
         }
-        .bullets{
-          /*position: fixed;
-          bottom: 0;*/
-          color: #00f;
-          z-index: 5;
-          width: 200px;
-          height: 50px;
+        .bullets {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 70%;
+          width: 80px;
+          padding: 1rem;
+          display: grid;
+          background: rgb(10, 10, 36);
+          border-top-right-radius: 50px;
+          border-bottom-right-radius: 50px;
         }
         .bullet{
-          width: 25px;
-          height: 25px;
-          margin: 0 5px;
-          display: inline-block;
+          width: 50%;
+          margin: 0 auto;
           border-radius: 100%;
           opacity: 0.5;
-          z-index: 5;
+
         }
         .bullet.active{
           opacity: 1;
         }
         .bullet img{
           width: 100%;
+          height: 100%;
         }
         
